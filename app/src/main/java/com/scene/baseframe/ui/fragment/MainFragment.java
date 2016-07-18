@@ -1,10 +1,12 @@
 package com.scene.baseframe.ui.fragment;
 
+import android.Manifest;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.scene.baseframe.R;
 import com.scene.baseframe.base.BaseFragment;
@@ -12,6 +14,8 @@ import com.scene.baseframe.event.StartBrotherEvent;
 import com.scene.baseframe.event.TabSelectedEvent;
 import com.scene.baseframe.ui.view.BottomBar;
 import com.scene.baseframe.ui.view.BottomBarTab;
+import com.scene.baselib.easypermissions.AfterPermissionGranted;
+import com.scene.baselib.easypermissions.EasyPermissions;
 import com.scene.baselib.frame.SupportFragment;
 
 import org.greenrobot.eventbus.EventBus;
@@ -97,6 +101,7 @@ public class MainFragment extends BaseFragment {
                 EventBus.getDefault().post(new TabSelectedEvent(position));
             }
         });
+
     }
 
     @Override
@@ -109,6 +114,7 @@ public class MainFragment extends BaseFragment {
 
     /**
      * start other BrotherFragment
+     * 方式：EventBus.getDefault().post(new StartBrotherEvent(XXFragment.newInstance()));
      */
     @Subscribe
     public void startBrother(StartBrotherEvent event) {
