@@ -1,12 +1,10 @@
 package com.scene.baseframe.ui.fragment;
 
-import android.Manifest;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.scene.baseframe.R;
 import com.scene.baseframe.base.BaseFragment;
@@ -14,8 +12,6 @@ import com.scene.baseframe.event.StartBrotherEvent;
 import com.scene.baseframe.event.TabSelectedEvent;
 import com.scene.baseframe.ui.view.BottomBar;
 import com.scene.baseframe.ui.view.BottomBarTab;
-import com.scene.baselib.easypermissions.AfterPermissionGranted;
-import com.scene.baselib.easypermissions.EasyPermissions;
 import com.scene.baselib.frame.SupportFragment;
 
 import org.greenrobot.eventbus.EventBus;
@@ -26,7 +22,6 @@ import org.greenrobot.eventbus.Subscribe;
  * Created by scene on 16/6/30.
  */
 public class MainFragment extends BaseFragment {
-    private static final int REQ_MSG = 10;
 
     public static final int FIRST = 0;
     public static final int SECOND = 1;
@@ -102,14 +97,6 @@ public class MainFragment extends BaseFragment {
             }
         });
 
-    }
-
-    @Override
-    protected void onFragmentResult(int requestCode, int resultCode, Bundle data) {
-        super.onFragmentResult(requestCode, resultCode, data);
-        if (requestCode == REQ_MSG && resultCode == RESULT_OK) {
-
-        }
     }
 
     /**
