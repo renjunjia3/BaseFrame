@@ -12,6 +12,9 @@ import com.scene.baseframe.base.BaseLazyMainFragment;
 
 import org.greenrobot.eventbus.EventBus;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * @FileName:com.scene.baseframe.ui.fragment.TabFragment1.java
  * @功能描述：
@@ -19,7 +22,8 @@ import org.greenrobot.eventbus.EventBus;
  * @date: 2016-07-14 16:25
  */
 public class TabFragment3 extends BaseLazyMainFragment {
-    private Toolbar mToolbar;
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
 
 
     public static TabFragment3 newInstance() {
@@ -34,6 +38,7 @@ public class TabFragment3 extends BaseLazyMainFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tab3, container, false);
+        ButterKnife.bind(this, view);
         initView(view);
         return view;
     }
@@ -43,11 +48,10 @@ public class TabFragment3 extends BaseLazyMainFragment {
         //在这里加载页面的数据
     }
 
-    private void initView(View view){
-        mToolbar = (Toolbar) view.findViewById(R.id.toolbar);
-
+    private void initView(View view) {
         mToolbar.setTitle("首页3");
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
