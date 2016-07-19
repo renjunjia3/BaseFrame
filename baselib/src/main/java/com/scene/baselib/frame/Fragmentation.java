@@ -22,6 +22,7 @@ import com.scene.baselib.frame.debug.DebugHierarchyViewContainer;
 import com.scene.baselib.frame.helper.FragmentResultRecord;
 import com.scene.baselib.frame.helper.OnEnterAnimEndListener;
 import com.scene.baselib.frame.helper.OnFragmentDestoryViewListener;
+import com.scene.baselib.util.LogUtil;
 
 
 /**
@@ -457,7 +458,7 @@ public class Fragmentation {
         Fragment targetFragment = fragmentManager.findFragmentByTag(fragmentClass.getName());
 
         if (targetFragment == null) {
-            Log.e(TAG, "Pop failure! Can't find " + fragmentClass.getSimpleName() + " in the FragmentManager's Stack.");
+            LogUtil.e(TAG, "Pop failure! Can't find " + fragmentClass.getSimpleName() + " in the FragmentManager's Stack.");
             return;
         }
 
@@ -677,7 +678,7 @@ public class Fragmentation {
                 sb.append("\t栈底\t\t\t").append(fragmentRecord.fragmentName).append("\n\n");
                 processChildLog(fragmentRecord.childFragmentRecord, sb, 1);
                 sb.append("═══════════════════════════════════════════════════════════════════════════════════");
-                Log.i(tag, sb.toString());
+                LogUtil.i(tag, sb.toString());
                 return;
             } else {
                 sb.append("\t↓\t\t\t").append(fragmentRecord.fragmentName).append("\n\n");

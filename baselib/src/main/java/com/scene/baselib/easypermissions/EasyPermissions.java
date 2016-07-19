@@ -30,7 +30,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
+
+import com.scene.baselib.util.LogUtil;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -67,7 +68,7 @@ public class EasyPermissions {
     public static boolean hasPermissions(Context context, String... perms) {
         // Always return true for SDK < M, let the system deal with the permissions
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            Log.w(TAG, "hasPermissions: API version < M, returning true by default");
+            LogUtil.w(TAG, "hasPermissions: API version < M, returning true by default");
             return true;
         }
 
@@ -87,8 +88,6 @@ public class EasyPermissions {
      *
      * @param object      Activity or Fragment requesting permissions. Should implement
      *                    {@link ActivityCompat.OnRequestPermissionsResultCallback}
-     *                    or
-     *                    {@link android.support.v13.app.FragmentCompat.OnRequestPermissionsResultCallback}
      * @param rationale   a message explaining why the application needs this set of permissions, will
      *                    be displayed if the user rejects the request the first time.
      * @param requestCode request code to track this request, must be < 256.
@@ -107,8 +106,6 @@ public class EasyPermissions {
      *
      * @param object         Activity or Fragment requesting permissions. Should implement
      *                       {@link ActivityCompat.OnRequestPermissionsResultCallback}
-     *                       or
-     *                       {@link android.support.v13.app.FragmentCompat.OnRequestPermissionsResultCallback}
      * @param rationale      a message explaining why the application needs this set of permissions, will
      *                       be displayed if the user rejects the request the first time.
      * @param positiveButton custom text for positive button
@@ -162,7 +159,7 @@ public class EasyPermissions {
      * Handle the result of a permission request, should be called from the calling Activity's
      * {@link ActivityCompat.OnRequestPermissionsResultCallback#onRequestPermissionsResult(int, String[], int[])}
      * method.
-     * <p>
+     * <p/>
      * If any permissions were granted or denied, the Activity will receive the appropriate
      * callbacks through {@link PermissionCallbacks} and methods annotated with
      * {@link AfterPermissionGranted} will be run if appropriate.
@@ -232,7 +229,7 @@ public class EasyPermissions {
      * {@link Fragment#onActivityResult(int, int, Intent)} or
      * {@link android.app.Fragment#onActivityResult(int, int, Intent)} will be called with
      * {@value #SETTINGS_REQ_CODE} as requestCode
-     * <p>
+     * <p/>
      * NOTE: use of this method is optional, should be called from
      * {@link PermissionCallbacks#onPermissionsDenied(int, List)}
      *
@@ -354,9 +351,9 @@ public class EasyPermissions {
                         }
                         method.invoke(object);
                     } catch (IllegalAccessException e) {
-                        Log.e(TAG, "runDefaultMethod:IllegalAccessException", e);
+                        LogUtil.e(TAG, "runDefaultMethod:IllegalAccessException:" + e);
                     } catch (InvocationTargetException e) {
-                        Log.e(TAG, "runDefaultMethod:InvocationTargetException", e);
+                        LogUtil.e(TAG, "runDefaultMethod:InvocationTargetException:" + e);
                     }
                 }
             }

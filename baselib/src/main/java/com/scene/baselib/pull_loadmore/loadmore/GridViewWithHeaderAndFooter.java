@@ -21,7 +21,6 @@ import android.database.DataSetObservable;
 import android.database.DataSetObserver;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -32,6 +31,8 @@ import android.widget.GridView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.WrapperListAdapter;
+
+import com.scene.baselib.util.LogUtil;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -687,7 +688,7 @@ public class GridViewWithHeaderAndFooter extends GridView {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (DEBUG) {
-                Log.d(LOG_TAG, String.format("getView: %s, reused: %s", position, convertView == null));
+                LogUtil.d(LOG_TAG, String.format("getView: %s, reused: %s", position, convertView == null));
             }
             // Header (negative positions will throw an ArrayIndexOutOfBoundsException)
             int numHeadersAndPlaceholders = getHeadersCount() * mNumColumns;
@@ -790,7 +791,7 @@ public class GridViewWithHeaderAndFooter extends GridView {
                 }
             }
             if (DEBUG) {
-                Log.d(LOG_TAG, String.format("getItemViewType: pos: %s, result: %s", position, type, mCachePlaceHoldView, mCacheFirstHeaderView));
+                LogUtil.d(LOG_TAG, String.format("getItemViewType: pos: %s, result: %s", position, type, mCachePlaceHoldView, mCacheFirstHeaderView));
             }
             return type;
         }
@@ -811,7 +812,7 @@ public class GridViewWithHeaderAndFooter extends GridView {
                 count += offset;
             }
             if (DEBUG) {
-                Log.d(LOG_TAG, String.format("getViewTypeCount: %s", count));
+                LogUtil.d(LOG_TAG, String.format("getViewTypeCount: " + count));
             }
             return count;
         }

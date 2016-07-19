@@ -16,6 +16,7 @@ import com.scene.baselib.easypermissions.EasyPermissions;
 import com.scene.baselib.frame.SupportActivity;
 import com.scene.baselib.frame.anim.DefaultHorizontalAnimator;
 import com.scene.baselib.frame.anim.FragmentAnimator;
+import com.scene.baselib.util.LogUtil;
 
 import java.util.List;
 
@@ -31,7 +32,6 @@ public class MainActivity extends SupportActivity {
 
         //申请权限---内存读写权限
         applyExternalPer();
-
     }
 
 

@@ -4,12 +4,13 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.AdapterDataObserver;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+
+import com.scene.baselib.util.LogUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -242,7 +243,7 @@ public class RecyclerAdapterWithHF extends RecyclerView.Adapter<RecyclerView.Vie
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
-        Log.d("eeee", "setOnItemClickListener " + this.onItemClickListener);
+        LogUtil.d("eeee", "setOnItemClickListener " + this.onItemClickListener);
     }
 
     public OnItemLongClickListener getOnItemLongClickListener() {
