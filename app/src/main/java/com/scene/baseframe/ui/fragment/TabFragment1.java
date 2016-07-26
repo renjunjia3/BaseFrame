@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.TextView;
 
 import com.scene.baseframe.R;
 import com.scene.baseframe.base.BaseLazyMainFragment;
@@ -17,7 +17,6 @@ import org.greenrobot.eventbus.EventBus;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 
 /**
  * @FileName:com.scene.baseframe.ui.fragment.TabFragment1.java
@@ -30,10 +29,10 @@ public class TabFragment1 extends BaseLazyMainFragment {
 
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
-
+    @BindView(R.id.title)
+    TextView title;
 
     public static TabFragment1 newInstance() {
-
         Bundle args = new Bundle();
         TabFragment1 fragment = new TabFragment1();
         fragment.setArguments(args);
@@ -55,7 +54,7 @@ public class TabFragment1 extends BaseLazyMainFragment {
     }
 
     private void initView(View view) {
-        mToolbar.setTitle("首页1");
+        title.setText("首页");
     }
 
 
@@ -73,6 +72,5 @@ public class TabFragment1 extends BaseLazyMainFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
     }
 }

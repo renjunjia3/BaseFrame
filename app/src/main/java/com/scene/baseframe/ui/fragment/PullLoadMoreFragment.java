@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import com.scene.baseframe.R;
 import com.scene.baseframe.adapter.PullLoadMoreAdapter;
@@ -74,8 +75,7 @@ public class PullLoadMoreFragment extends BaseBackFragment {
     }
 
     private void initView() {
-        toolbar.setTitle(msg);
-        initToolbarNav(toolbar);
+        initToolbarNav(toolbar, msg);
         ptrLayout.setLastUpdateTimeRelateObject(this);
     }
 

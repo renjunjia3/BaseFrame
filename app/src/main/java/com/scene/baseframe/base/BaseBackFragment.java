@@ -2,9 +2,11 @@ package com.scene.baseframe.base;
 
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import com.scene.baseframe.R;
 import com.scene.baselib.frame.swipeback.SwipeBackFragment;
+import com.scene.baselib.util.LogUtil;
 
 
 /**
@@ -12,8 +14,13 @@ import com.scene.baselib.frame.swipeback.SwipeBackFragment;
  */
 public class BaseBackFragment extends SwipeBackFragment {
     private static final String TAG = "Fragmentation";
+    private TextView title;
 
-    protected void initToolbarNav(Toolbar toolbar) {
+    /**
+     * @param toolbar  页面内的toolbar
+     * @param strTitle 标题
+     */
+    protected void initToolbarNav(Toolbar toolbar, String strTitle) {
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -21,6 +28,14 @@ public class BaseBackFragment extends SwipeBackFragment {
                 _mActivity.onBackPressed();
             }
         });
+        try {
+            title = (TextView) toolbar.findViewById(R.id.title);
+            title.setText(strTitle);
+        } catch (Exception e) {
+            LogUtil.e("toolbar没有自定义的title");
+            e.printStackTrace();
+        }
+
 
 //        initToolbarMenu(toolbar);
     }

@@ -29,7 +29,6 @@ public class MainActivity extends SupportActivity {
         if (savedInstanceState == null) {
             loadRootFragment(R.id.fl_container, MainFragment.newInstance());
         }
-
         //申请权限---内存读写权限
         applyExternalPer();
     }

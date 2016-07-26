@@ -18,23 +18,23 @@ import com.scene.baseframe.R;
  */
 public class GlideUtils {
 
-    public static void loadImage(Context context, String url, ImageView imageView) {
+    public static void loadImage(Context context, Object url, ImageView imageView) {
         Glide.with(context).load(url).placeholder(R.drawable.bg_img).error(R.drawable.bg_img_error).crossFade().into(imageView);
     }
 
-    public static void loadImage(Activity activity, String url, ImageView imageView) {
+    public static void loadImage(Activity activity, Object url, ImageView imageView) {
         Glide.with(activity).load(url).placeholder(R.drawable.bg_img).error(R.drawable.bg_img_error).crossFade().into(imageView);
     }
 
-    public static void loadImage(Fragment fragment, String url, ImageView imageView) {
+    public static void loadImage(Fragment fragment, Object url, ImageView imageView) {
         Glide.with(fragment).load(url).placeholder(R.drawable.bg_img).error(R.drawable.bg_img_error).crossFade().into(imageView);
     }
 
-    public static void loadImage(android.app.Fragment fragment, String url, ImageView imageView) {
+    public static void loadImage(android.app.Fragment fragment, Object url, ImageView imageView) {
         Glide.with(fragment).load(url).placeholder(R.drawable.bg_img).error(R.drawable.bg_img_error).crossFade().into(imageView);
     }
 
-    public static void loadImage(FragmentActivity activity, String url, ImageView imageView) {
+    public static void loadImage(FragmentActivity activity, Object url, ImageView imageView) {
         Glide.with(activity).load(url).placeholder(R.drawable.bg_img).error(R.drawable.bg_img_error).crossFade().into(imageView);
     }
 }
