@@ -141,7 +141,5 @@ public class PullLoadMoreFragment extends BaseBackFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        _mActivity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
-        hideSoftInput();
     }
 }

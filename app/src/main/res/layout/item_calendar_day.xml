@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--每一天的数据-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/type_default_Layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--可以点击不显示余票-->
+    <TextView
+        android:id="@+id/tv_day_default"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="1.5dp"
+        android:background="@drawable/bg_calendar_default"
+        android:gravity="center"
+        android:textColor="@color/color_black"
+        android:textSize="16sp"
+        android:visibility="gone" />
+    <!--可以点击显示余票-->
+    <LinearLayout
+        android:id="@+id/showTicketLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="1.5dp"
+        android:background="@drawable/bg_calendar_default"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_day_showTicketLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="27"
+            android:textColor="@color/color_black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_ticket_showTicketLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:gravity="bottom"
+            android:text="余2"
+            android:textColor="@color/color_green"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+
+    <!--不可以点击-->
+    <TextView
+        android:id="@+id/tv_day_unclick"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="1.5dp"
+        android:background="@drawable/bg_calendar_unselect"
+        android:enabled="false"
+        android:gravity="center"
+        android:textColor="@color/color_gray"
+        android:textSize="16sp"
+        android:visibility="gone" />
+
+</RelativeLayout>
+

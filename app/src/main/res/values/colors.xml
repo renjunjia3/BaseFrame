@@ -7,4 +7,9 @@
     <color name="tab_unselect">#c9c9c9</color>
 
     <color name="white">#FFFFFF</color>
+
+    <color name="text_color_black">#666666</color>
+    <color name="color_black">#000000</color>
+    <color name="color_green">#22CC00</color>
+    <color name="color_gray">#cccccc</color>
 </resources>

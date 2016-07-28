@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
@@ -585,6 +586,9 @@ public class SupportFragment extends Fragment implements ISupportFragment {
         }
         super.onDestroyView();
         mFragmentDestoryViewListener = null;
+
+        _mActivity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+        hideSoftInput();
     }
 
     @Override
