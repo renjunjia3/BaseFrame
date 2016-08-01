@@ -6,15 +6,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.scene.baseframe.R;
 import com.scene.baseframe.base.BaseLazyMainFragment;
+import com.scene.baseframe.event.StartBrotherEvent;
 
 import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * @FileName:com.scene.baseframe.ui.fragment.TabFragment1.java
@@ -53,6 +56,12 @@ public class TabFragment3 extends BaseLazyMainFragment {
     private void initView(View view) {
         title.setText("首页3");
     }
+
+    public void onBtnClick(View v) {
+        switch (v.getId()) {
+        }
+    }
+
 
     @Override
     public void onDestroy() {

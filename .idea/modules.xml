@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/BaseFrame.iml" filepath="$PROJECT_DIR$/BaseFrame.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/baselib/baselib.iml" filepath="$PROJECT_DIR$/baselib/baselib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nightmode/nightmode.iml" filepath="$PROJECT_DIR$/nightmode/nightmode.iml" />
     </modules>
   </component>
 </project>

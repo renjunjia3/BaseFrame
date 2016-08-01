@@ -1,5 +1,6 @@
 package com.scene.baseframe.ui.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
@@ -258,19 +259,20 @@ public class TabFragment2 extends BaseLazyMainFragment implements View.OnClickLi
     private void changeDayView(Calendar calendar, View tv_day_default, View showTicketLayout, View tv_day_unclick) {
 
         tv_day_default.setVisibility(View.VISIBLE);
-
-        if (compareCal(calendar, calendarToday) == -1) {// 小于当天
+        // 小于当天
+        if (compareCal(calendar, calendarToday) == -1) {
             tv_day_default.setVisibility(View.GONE);
             showTicketLayout.setVisibility(View.GONE);
             tv_day_unclick.setVisibility(View.VISIBLE);
         }
-        if (compareCal(calendar, selectedDate) == 0) {// 选择日
+        // 需要显示有余票的情况  判断条件需要改
+        if (compareCal(calendar, selectedDate) == 0) {
             tv_day_default.setVisibility(View.GONE);
             showTicketLayout.setVisibility(View.VISIBLE);
             tv_day_unclick.setVisibility(View.GONE);
         }
-
-        if (compareCal(calendar, endDate) == 1) {// 大于截止日
+        // 大于截止日
+        if (compareCal(calendar, endDate) == 1) {
             tv_day_default.setVisibility(View.GONE);
             showTicketLayout.setVisibility(View.GONE);
             tv_day_unclick.setVisibility(View.VISIBLE);
@@ -283,12 +285,9 @@ public class TabFragment2 extends BaseLazyMainFragment implements View.OnClickLi
     @Override
     public void onClick(View view) {
         if (view.getTag() != null && choosedView != view) {
-            if (choosedView != null) {
-                choosedView.setBackgroundResource(R.drawable.bg_calendar_default);
-            }
-            view.setBackgroundResource(R.drawable.bg_calendar_seleced);
-            choosedView = view;
-
+            //修改View的状态
+            changeItemUnchoosed(choosedView);
+            changeItemChoosed(view);
 
             Calendar choosedCalendar = Calendar.getInstance();
             choosedCalendar.setTimeInMillis(((Long) view.getTag()).longValue());
@@ -297,6 +296,56 @@ public class TabFragment2 extends BaseLazyMainFragment implements View.OnClickLi
                     + choosedCalendar.get(Calendar.DAY_OF_MONTH) + "日");
         }
     }
+
+    /**
+     * 设置之前选中的View为默认状态
+     *
+     * @param view
+     */
+    private void changeItemUnchoosed(View view) {
+        if (view != null) {
+            view.setBackgroundColor(0);
+            TextView tv_day_default = (TextView) view.findViewById(R.id.tv_day_default);
+            TextView tv_ticket_showTicketLayout = (TextView) view.findViewById(R.id.tv_ticket_showTicketLayout);
+            TextView tv_day_showTicketLayout = (TextView) view.findViewById(R.id.tv_day_showTicketLayout);
+
+            if (tv_day_default != null) {
+                tv_day_default.setTextColor(Color.BLACK);
+            }
+            if (tv_day_showTicketLayout != null) {
+                tv_day_showTicketLayout.setTextColor(Color.BLACK);
+            }
+            if (tv_ticket_showTicketLayout != null) {
+                tv_ticket_showTicketLayout.setTextColor(Color.parseColor("#DD11AA44"));
+            }
+        }
+
+    }
+
+    /**
+     * 设置item选中
+     */
+    private void changeItemChoosed(View view) {
+
+        view.setBackgroundColor(Color.parseColor("#DD11AA44"));
+
+        TextView tv_day_default = (TextView) view.findViewById(R.id.tv_day_default);
+        TextView tv_ticket_showTicketLayout = (TextView) view.findViewById(R.id.tv_ticket_showTicketLayout);
+        TextView tv_day_showTicketLayout = (TextView) view.findViewById(R.id.tv_day_showTicketLayout);
+
+        if (tv_day_default != null) {
+            tv_day_default.setTextColor(Color.WHITE);
+        }
+        if (tv_ticket_showTicketLayout != null) {
+            tv_ticket_showTicketLayout.setTextColor(Color.WHITE);
+        }
+        if (tv_day_showTicketLayout != null) {
+            tv_day_showTicketLayout.setTextColor(Color.WHITE);
+        }
+
+        choosedView = view;
+    }
+
 
     @Override
     public void onDestroy() {
