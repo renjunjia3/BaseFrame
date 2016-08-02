@@ -6,11 +6,8 @@
 
     <include layout="@layout/toolbar" />
 
-    <Button
-        android:id="@+id/enterWebView"
-        style="@style/Base.Widget.AppCompat.Button"
+    <com.scene.baselib.frame.view.ProgressWebView
+        android:id="@+id/webView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="进入网页" />
+        android:layout_height="match_parent" />
 </LinearLayout>

@@ -24,7 +24,7 @@ import com.scene.baseframe.R;
 public class GlideConfiguration implements GlideModule {
 
     private final int DISK_CACHE_SIZE = 50 * 1024 * 1024;
-    private final String DISK_CACHE_NAME = Environment.getExternalStorageDirectory().getPath()+"/BaseFrame/image/cache";
+    private final String DISK_CACHE_NAME = Environment.getExternalStorageDirectory().getPath() + AppConfig.CACHE_URL;
 
     @Override
     public void applyOptions(Context context, GlideBuilder glideBuilder) {

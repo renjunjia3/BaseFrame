@@ -1,1 +1,1 @@
-include ':app', ':baselib', ':nightmode'
+include ':app', ':baselib', ':nightmode', ':chooseimage'

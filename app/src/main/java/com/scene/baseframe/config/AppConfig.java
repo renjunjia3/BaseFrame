@@ -10,5 +10,7 @@ public class AppConfig {
     public static final long OKHTTP_CONNECT_TIME_OUT = 10000L;
     public static final long OKHTTP_READ_TIME_OUT = 10000L;
 
+    public static final String CACHE_URL = "/BaseFrame/image/cache";
+
     public static final String ISFRIST = "ISFRIST";
 }

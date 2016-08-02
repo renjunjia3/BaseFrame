@@ -31,6 +31,7 @@ public class TabFragment3 extends BaseLazyMainFragment {
     @BindView(R.id.title)
     TextView title;
 
+
     public static TabFragment3 newInstance() {
 
         Bundle args = new Bundle();
@@ -57,8 +58,13 @@ public class TabFragment3 extends BaseLazyMainFragment {
         title.setText("首页3");
     }
 
+
+    @OnClick({R.id.enterWebView})
     public void onBtnClick(View v) {
         switch (v.getId()) {
+            case R.id.enterWebView:
+                EventBus.getDefault().post(new StartBrotherEvent(WebViewFragment.newInstance("Web界面")));
+                break;
         }
     }
 
