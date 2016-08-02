@@ -49,7 +49,7 @@ public class MainActivity extends SupportActivity {
 
     @AfterPermissionGranted(PermissionsConfig.RC_EXTERNAL_PERM)
     public void applyExternalPer() {
-        if (EasyPermissions.hasPermissions(this, Manifest.permission.CAMERA)) {
+        if (EasyPermissions.hasPermissions(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
             // 已经获取到权限了
         } else {
             //申请一个权限 多个权限的申请最后一个参数可以是字符串数组
