@@ -1,5 +1,6 @@
 package com.scene.baseframe.ui.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.AbsListView;
 import android.widget.TextView;
 
 import com.scene.baseframe.R;
@@ -29,7 +31,7 @@ import butterknife.ButterKnife;
 
 /**
  * @FileName:com.scene.baseframe.ui.fragment.PullLoadMoreFragment.java
- * @功能描述：
+ * @功能描述：RecyclerView上拉下拉
  * @author: scene
  * @date: 2016-07-18 10:20
  */
@@ -84,6 +86,14 @@ public class PullLoadMoreFragment extends BaseBackFragment {
         super.onEnterAnimationEnd(savedInstanceState);
         adapter = new PullLoadMoreAdapter(mlists, this);
         mAdapter = new RecyclerAdapterWithHF(adapter);
+
+        // header place holder
+        View headerMarginView = new View(getContext());
+        headerMarginView.setBackgroundColor(Color.BLUE);
+        headerMarginView.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 100));
+        mAdapter.addHeader(headerMarginView);
+
+
         recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerview.setAdapter(mAdapter);
         ptrLayout.postDelayed(new Runnable() {
@@ -129,6 +139,8 @@ public class PullLoadMoreFragment extends BaseBackFragment {
                         mlists.add("https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2666243017,432522262&fm=21&gp=0.jpg");
                         mAdapter.notifyDataSetChanged();
                         page++;
+                        //ptrLayout.loadFail();
+
                         ptrLayout.loadMoreComplete(page <= 5 ? true : false);
                         ptrLayout.setLoadMoreEnable(page <= 5 ? true : false);
                     }

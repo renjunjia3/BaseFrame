@@ -1106,6 +1106,10 @@ public class PtrFrameLayout extends ViewGroup {
         }
     }
 
+    public void loadFail(){
+        mLoadMoreView.showFail(null);
+    }
+
     public boolean isLoading() {
         return isLoading;
     }

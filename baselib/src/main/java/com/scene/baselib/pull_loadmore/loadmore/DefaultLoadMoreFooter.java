@@ -65,7 +65,7 @@ public class DefaultLoadMoreFooter implements ILoadViewMoreFactory {
 
         @Override
         public void showFail(Exception exception) {
-            footerTv.setText("加载失败，点击重新");
+            footerTv.setText("加载失败，点击重新加载");
             footerBar.setVisibility(View.GONE);
             footerTv.setOnClickListener(onClickRefreshListener);
         }
