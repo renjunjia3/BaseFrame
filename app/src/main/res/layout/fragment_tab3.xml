@@ -13,4 +13,12 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="进入网页" />
+
+    <Button
+        android:id="@+id/enterBlurFragment"
+        style="@style/Base.Widget.AppCompat.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="进入模糊页面" />
 </LinearLayout>

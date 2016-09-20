@@ -60,7 +60,7 @@ public class WebViewFragment extends BaseBackFragment {
     @Override
     protected void onEnterAnimationEnd(Bundle savedInstanceState) {
         super.onEnterAnimationEnd(savedInstanceState);
-        webView.getWebView().loadUrl("https://www.github.com/");
+        webView.getWebView().loadUrl("http://www.scene.wiki");
     }
 
     @Override

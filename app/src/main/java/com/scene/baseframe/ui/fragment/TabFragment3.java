@@ -59,11 +59,14 @@ public class TabFragment3 extends BaseLazyMainFragment {
     }
 
 
-    @OnClick({R.id.enterWebView})
+    @OnClick({R.id.enterWebView, R.id.enterBlurFragment})
     public void onBtnClick(View v) {
         switch (v.getId()) {
             case R.id.enterWebView:
                 EventBus.getDefault().post(new StartBrotherEvent(WebViewFragment.newInstance("Web界面")));
+                break;
+            case R.id.enterBlurFragment:
+                EventBus.getDefault().post(new StartBrotherEvent(BlurFragment.newInstance()));
                 break;
         }
     }

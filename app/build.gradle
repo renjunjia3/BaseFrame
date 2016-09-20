@@ -35,4 +35,5 @@ dependencies {
     compile files('libs/okhttp-3.4.1.jar')
     compile files('libs/okio-1.9.0.jar')
     compile files('libs/okhttputils-2_6_2.jar')
+    compile 'com.github.Commit451:NativeStackBlur:1.0.5'
 }
